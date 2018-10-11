@@ -1,0 +1,13 @@
+PROGRAM := "Hello!" STATEMENT* "Thanks!"
+STATEMENT := SHAPEDEC | EDGEDEC
+SHAPEDEC := "make me a" SHAPE "called" NAME "please"
+EDGEDEC := "connect" SHAPE "to" SHAPE
+
+
+
+Hello!
+make me a circle called Fido please
+make me a square called Biff please
+connect Fido to Biff
+Thanks!
+
