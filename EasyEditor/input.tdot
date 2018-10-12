@@ -1,6 +1,11 @@
-Set Author "Super Team"
-Set Title "AAAA"
+Set Title "Paper XX"
+Set Author "author XX"
 Set Date "10/11/2018"
 Create String "my name is XXXX" Called string1
 Create Section Called s1
 Set the title of s1 "introduction"
+Create List "rex,colin" Called names
+Present s1,s2
+
+
+

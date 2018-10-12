@@ -9,7 +9,7 @@ import java.io.UnsupportedEncodingException;
  * Created by zelin on 2018/9/18.
  */
 public class AUTHOR extends STATEMENT {
-    String name;
+    private String name;
     @Override
     public void parse() {
 //        tokenizer.getAndCheckNext("connect");
