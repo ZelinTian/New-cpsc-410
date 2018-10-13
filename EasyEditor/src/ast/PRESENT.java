@@ -20,16 +20,11 @@ public class PRESENT extends STATEMENT {
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
         //make a fake symbolTable
-        Main.symbolTable.put("s1_content","string1,list1");
-        Main.symbolTable.put("s2_title","skills");
-        Main.symbolTable.put("s3_title","java skill");
-        Main.symbolTable.put("s4_title","python skill");
-        Main.symbolTable.put("string3","3 year exp");
-        Main.symbolTable.put("string4","4 year exp");
-        Main.symbolTable.put("s2_content","string3,s3,s4");
-        Main.symbolTable.put("s3_content","string3,list1");
-        Main.symbolTable.put("list1_list","math,cpsc,stat,engl");
-        Main.symbolTable.put("s4_content","string4");
+//        Main.symbolTable.put("s1_content","string1,list1");
+//        Main.symbolTable.put("s2_title","try");
+//        Main.symbolTable.put("s2_content","st2");
+//        Main.symbolTable.put("st2_superstring","skills RED[good] shshhs");
+
         //////////////////////////
         System.out.println("show the results:" );
         MAKER maker = new MAKER();
@@ -46,7 +41,6 @@ public class PRESENT extends STATEMENT {
             String date =(String)Main.symbolTable.get("Date");
             maker.setDate(date);
         }
-
         maker.beginDoc();
         for (int c = 0; c < presentList.size(); c++){
             String presentItem_id = presentList.get(c);

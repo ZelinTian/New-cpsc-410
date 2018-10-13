@@ -11,6 +11,7 @@ public class CREATE extends STATEMENT {
     private SECTION codeSection;
     private String a;
     private LIST codeList;
+    private SUPERSTRING codesuperstring;
     @Override
     public void parse() {
         tokenizer.getAndCheckNext("Create");
@@ -26,17 +27,22 @@ public class CREATE extends STATEMENT {
         }else if (a.equals("List")){
             codeList = new LIST();
             codeList.parse();
+        }else if (a.equals("Superstring")){
+            codesuperstring = new SUPERSTRING();
+            codesuperstring.parse();
         }
     }
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-        if (a.equals("Section")){
+        if (a.equals("Section")) {
             codeSection.evaluate();
-        } else if (a.equals("String")){
+        } else if (a.equals("String")) {
             codeSectionContent.evaluate();
-        } else if (a.equals("List")){
+        } else if (a.equals("List")) {
             codeList.evaluate();
+        } else if (a.equals("Superstring")) {
+            codesuperstring.evaluate();
         }
         return null;
     }

@@ -1,6 +1,14 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
-
+\usepackage{color}
+% Colors
+\definecolor{blu}{rgb}{0,0,1}
+\def\blu#1{{\color{blu}#1}}
+\definecolor{gre}{rgb}{0,.5,0}
+\def\gre#1{{\color{gre}#1}}
+\definecolor{red}{rgb}{1,0,0}
+\def\red#1{{\color{red}#1}}
+\def\norm#1{\|#1\|}
 \title{Paper XX}
 \author{author XX}
 \date{10/11/2018}
@@ -11,24 +19,17 @@
 
 
 
-\section{introduction}
-my name is XXXX
+\section{my friends:}
  \begin{itemize}
- \item math
- \item cpsc
- \item stat
- \item engl
+ \item rex
+ \item colin
  \end{itemize}
+ \subsection{Introduction}My name is Colin
 
-\section{skills}
-3 year exp
- \subsection{java skill}3 year exp
+\section{skills}I have such \red{skills} 
  \begin{itemize}
- \item math
- \item cpsc
- \item stat
- \item engl
+ \item Java
+ \item python
  \end{itemize}
- \subsection{python skill}4 year exp
 
 \end{document}

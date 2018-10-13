@@ -12,13 +12,15 @@ public class Main {
     public static Map<String,Object> symbolTable = new HashMap<>();
 
     public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
-        List<String> literals = Arrays.asList("Section","Set","Author","Create","String","Called", "the title of","\"","Present","Date","Title","List");
+        List<String> literals = Arrays.asList("Section","Set","Author","Create","String","Called", "the title of","\"","Present","Date","Title","List","Add","To","Superstring");
         Tokenizer.makeTokenizer("input.tdot",literals);
         PROGRAM p = new PROGRAM ();
         p.parse();
         p.evaluate();
-        System.out.println("Completed successfully!!!!!");
+        System.out.println("Show the table");
         System.out.println(symbolTable);
+        System.out.println("Completed successfully!!!!!");
+
     }
 
 }

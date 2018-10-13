@@ -10,6 +10,8 @@ public  abstract class STATEMENT extends Node {
             return new CREATE();
         } else if (tokenizer.checkToken("Present")){
             return new PRESENT();
+        } else if (tokenizer.checkToken("Add")){
+            return new Add();
         }
         else return null;
     }

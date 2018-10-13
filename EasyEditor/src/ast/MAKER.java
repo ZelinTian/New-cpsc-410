@@ -16,7 +16,16 @@ public class MAKER {
         try {
             output = new PrintWriter(fileName);
             output.print("\\documentclass{article}\n" +
-                    "\\usepackage[utf8]{inputenc}"+"\n");
+                    "\\usepackage[utf8]{inputenc}\n" +
+                    "\\usepackage{color}\n" +
+                    "% Colors\n" +
+                    "\\definecolor{blu}{rgb}{0,0,1}\n" +
+                    "\\def\\blu#1{{\\color{blu}#1}}\n" +
+                    "\\definecolor{gre}{rgb}{0,.5,0}\n" +
+                    "\\def\\gre#1{{\\color{gre}#1}}\n" +
+                    "\\definecolor{red}{rgb}{1,0,0}\n" +
+                    "\\def\\red#1{{\\color{red}#1}}\n" +
+                    "\\def\\norm#1{\\|#1\\|}");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -44,6 +53,27 @@ public class MAKER {
         }
     }
 
+    public void setsuperString(String superString){
+        try{
+           List<String> splitSuperStrings = new ArrayList<String>();
+           String superstringContent = (String)Main.symbolTable.get(superString);
+           splitSuperStrings = Arrays.asList(superstringContent.split(" "));
+           for (String s : splitSuperStrings){
+               if (s.contains("[")){
+                   int i = s.indexOf("[");
+                   String color = s.substring(0,3).toLowerCase();
+                   int j = s.indexOf("]");
+                   String object = s.substring(i+1,j);
+                   output.print("\\"+color+"{"+object+"} ");
+               }else {
+                   output.print(s+" ");
+               }
+           }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     public void build_section(String id){
         String section_title = (String)Main.symbolTable.get(id+"_title");
         try {
@@ -62,6 +92,8 @@ public class MAKER {
                 output.print("\n" + stringContent);
             } else if (Main.symbolTable.containsKey(content_id+"_list")){
                 build_list(content_id+"_list");
+            } else if (Main.symbolTable.containsKey(content_id+"_superstring")){
+                setsuperString(content_id+"_superstring");
             }
             else {
                 build_subsection(content_id);
@@ -90,6 +122,7 @@ public class MAKER {
                 if (Main.symbolTable.containsKey(target)){
                     output.print("\n \\subsection{" + subsection_title + "}"+Main.symbolTable.get(target));
                 }else {
+                    output.print("\n \\subsection{" + subsection_title + "}");
                     build_list(target+"_list");
                 }
             }

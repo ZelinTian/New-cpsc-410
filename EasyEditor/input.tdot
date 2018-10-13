@@ -1,11 +1,24 @@
 Set Title "Paper XX"
 Set Author "author XX"
 Set Date "10/11/2018"
-Create String "my name is XXXX" Called string1
-Create Section Called s1
-Set the title of s1 "introduction"
+
 Create List "rex,colin" Called names
-Present s1,s2
+Create Section Called s2
+Set the title of s2 "my friends:"
+Add names To s2
+
+Create String "My name is Colin" Called string1
+Create Section Called s1
+Set the title of s1 "Introduction"
+Add string1 To s1
+Add s1 To s2
+
+Create Superstring "I have such RED[skills]" Called string3
+Create Section Called s3
+Create List "Java,python" Called myskills
+Set the title of s3 "skills"
+Add string3 To s3
+Add myskills To s3
 
 
-
+Present s2,s3
