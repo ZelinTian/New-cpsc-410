@@ -33,7 +33,7 @@ public class MAKER {
 
     public void setTitle(String HEADER){
         try {
-            output.print("\n"+"\\Header{" + HEADER +"}");
+            output.print("\n"+"\\title{" + HEADER +"}");
         } catch (Exception e) {
             e.printStackTrace();
         }

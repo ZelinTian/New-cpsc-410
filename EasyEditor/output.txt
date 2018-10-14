@@ -9,6 +9,7 @@
 \definecolor{red}{rgb}{1,0,0}
 \def\red#1{{\color{red}#1}}
 \def\norm#1{\|#1\|}
+\title{Paper XX}
 \author{author XX}
 \date{10/11/2018}
 
@@ -32,6 +33,13 @@ My name is Colin
  \begin{itemize}
  \item Java
  \item python
+ \end{itemize}
+
+\section{Mars}
+ \begin{itemize}
+ \item CPSC410
+ \item  CPSC404
+ \item  CPSC418
  \end{itemize}
 
 \end{document}

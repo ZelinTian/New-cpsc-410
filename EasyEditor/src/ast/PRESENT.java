@@ -29,8 +29,8 @@ public class PRESENT extends STATEMENT {
         System.out.println("show the results:" );
         MAKER maker = new MAKER();
         maker.startWrite();
-        if (Main.symbolTable.containsKey("Title")){
-            String title =(String)Main.symbolTable.get("Title");
+        if (Main.symbolTable.containsKey("Header")){
+            String title =(String)Main.symbolTable.get("Header");
             maker.setTitle(title);
         }
         if (Main.symbolTable.containsKey("Author")){
