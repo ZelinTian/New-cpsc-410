@@ -1,4 +1,4 @@
-Set Title "Paper XX"
+Set HEADER "Paper XX"
 Set Author "author XX"
 Set Date "10/11/2018"
 
@@ -21,4 +21,12 @@ Add string3 To s3
 Add myskills To s3
 
 
-Present s2,s3
+
+
+Create Section Called Mars
+Set the title of Mars "Mars"
+Create List "CPSC410, CPSC404, CPSC418" Called Courses
+Add Courses To Mars
+
+
+Present s1,s2,s3

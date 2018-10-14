@@ -1,31 +1,27 @@
-
 package ast;
-
 
 import ui.Main;
 
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.List;
-public class DATE extends STATEMENT{
-    private String date;
 
+/**
+ * Created by shuibo on 2018/10/11.
+ */
+public class HEADER extends STATEMENT {
+    private String name;
     @Override
     public void parse() {
-        //    tokenizer.getAndCheckNext("");
         tokenizer.getNext();
         tokenizer.getNext();
-        date = tokenizer.getNext();
+        name = tokenizer.getNext();
         tokenizer.getNext();
         tokenizer.getNext();
-        System.out.println("Date: " + date);
     }
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-        Main.symbolTable.put("Date", date);
+        Main.symbolTable.put("Header", name);
         return null;
     }
-
 }

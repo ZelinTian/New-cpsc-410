@@ -10,7 +10,7 @@ public class SET extends STATEMENT {
 //    private Title codeTitle;
     private AUTHOR codeAuthor;
     private SECTION_TITLE codeSectionTitle;
-    private TITLE codeTitle;
+    private HEADER codeTitle;
     private DATE codeDate;
     private String a;
     @Override
@@ -28,8 +28,8 @@ public class SET extends STATEMENT {
         } else if (a.equals("Date")){
             codeDate = new DATE();
             codeDate.parse();
-        } else if (a.equals("Title")){
-            codeTitle = new TITLE();
+        } else if (a.equals("HEADER")){
+            codeTitle = new HEADER();
             codeTitle.parse();
         }
     }
@@ -42,7 +42,7 @@ public class SET extends STATEMENT {
             codeAuthor.evaluate();
         }  else if (a.equals("Date")){
             codeDate.evaluate();
-        } else if (a.equals("Title")){
+        } else if (a.equals("HEADER")){
             codeTitle.evaluate();
         }
 
