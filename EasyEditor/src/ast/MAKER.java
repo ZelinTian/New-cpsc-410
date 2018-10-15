@@ -61,7 +61,7 @@ public class MAKER {
            for (String s : splitSuperStrings){
                if (s.contains("[")){
                    int i = s.indexOf("[");
-                   String color = s.substring(0,3).toLowerCase();
+                   String color = s.substring(0,i).toLowerCase();
                    int j = s.indexOf("]");
                    String object = s.substring(i+1,j);
                    output.print("\\"+color+"{"+object+"} ");

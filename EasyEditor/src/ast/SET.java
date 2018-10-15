@@ -19,7 +19,10 @@ public class SET extends STATEMENT {
     public void parse() throws InvalidInputException {
         try {
             tokenizer.getAndCheckNext("Set");
-            String target = tokenizer.getNext();
+            String blank = tokenizer.getNext();
+            if (!blank.equals(" ")) {
+                throw new InvalidInputException("Correct Set statement: Set Author/Date/HEADER/the title of CONTENT");
+            }
             a = tokenizer.getNext();
 //        String s1 = tokenizer.getNext();
             if (a.equals("the title of")) {

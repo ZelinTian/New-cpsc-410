@@ -18,7 +18,10 @@ public class CREATE extends STATEMENT {
     public void parse() throws InvalidInputException {
         try {
             tokenizer.getAndCheckNext("Create");
-            String target = tokenizer.getNext();
+            String blank = tokenizer.getNext();
+            if (!blank.equals(" ")) {
+                throw new InvalidInputException("Correct Create statement: Create Section/String/List/Superstring CONTENT");
+            }
             a = tokenizer.getNext();
 //        String s1 = tokenizer.getNext();
             if (a.equals("Section")) {
