@@ -1,5 +1,7 @@
 package ast;
 
+import libs.InvalidInputException;
+
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 
@@ -13,23 +15,29 @@ public class CREATE extends STATEMENT {
     private LIST codeList;
     private SUPERSTRING codesuperstring;
     @Override
-    public void parse() {
-        tokenizer.getAndCheckNext("Create");
-        String target = tokenizer.getNext();
-        a = tokenizer.getNext();
+    public void parse() throws InvalidInputException {
+        try {
+            tokenizer.getAndCheckNext("Create");
+            String target = tokenizer.getNext();
+            a = tokenizer.getNext();
 //        String s1 = tokenizer.getNext();
-        if (a.equals("Section")){
-            codeSection = new SECTION();
-            codeSection.parse();
-        } else if (a.equals("String")){
-            codeSectionContent = new STRING_CONTENT();
-            codeSectionContent.parse();
-        }else if (a.equals("List")){
-            codeList = new LIST();
-            codeList.parse();
-        }else if (a.equals("Superstring")){
-            codesuperstring = new SUPERSTRING();
-            codesuperstring.parse();
+            if (a.equals("Section")) {
+                codeSection = new SECTION();
+                codeSection.parse();
+            } else if (a.equals("String")) {
+                codeSectionContent = new STRING_CONTENT();
+                codeSectionContent.parse();
+            } else if (a.equals("List")) {
+                codeList = new LIST();
+                codeList.parse();
+            } else if (a.equals("Superstring")) {
+                codesuperstring = new SUPERSTRING();
+                codesuperstring.parse();
+            } else {
+                throw new InvalidInputException("Correct Create statement: Create Section/String/List/Superstring CONTENT");
+            }
+        } catch (InvalidInputException e) {
+            throw e;
         }
     }
 

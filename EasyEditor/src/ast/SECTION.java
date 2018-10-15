@@ -1,5 +1,6 @@
 package ast;
 
+import libs.InvalidInputException;
 import libs.Node;
 import ui.Main;
 
@@ -13,11 +14,14 @@ public class SECTION extends Node{
     private String  sectionId;
 
     @Override
-    public void parse() {
-        tokenizer.getNext();
-        tokenizer.getAndCheckNext("Called");
+    public void parse() throws InvalidInputException {
+        String blank = tokenizer.getNext();
+        String called = tokenizer.getNext();
         sectionId = tokenizer.getNext();
         System.out.println("section id: " + sectionId);
+        if (!blank.equals(" ") || !called.equals("Called")) {
+            throw new InvalidInputException("Correct Create Section statement: Create Section Called SECTION_NAME");
+        }
     }
 
     @Override

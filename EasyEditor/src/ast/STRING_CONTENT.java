@@ -1,5 +1,6 @@
 package ast;
 
+import libs.InvalidInputException;
 import ui.Main;
 
 import java.io.FileNotFoundException;
@@ -16,17 +17,20 @@ public class STRING_CONTENT extends STATEMENT {
     private String contentId;
     private List<SECTION> subsection = new ArrayList<SECTION>();
     @Override
-    public void parse() {
-        tokenizer.getNext();
-        tokenizer.getNext();
+    public void parse() throws InvalidInputException {
+        String blank1 = tokenizer.getNext();
+        String quotation1 = tokenizer.getNext();
         content = tokenizer.getNext();
         System.out.println("asc" + content);
 //        tokenizer.getAndCheckNext("Called");
-        tokenizer.getNext();
-        tokenizer.getNext();
-        tokenizer.getAndCheckNext("Called");
+        String quotation2 = tokenizer.getNext();
+        String blank2 = tokenizer.getNext();
+        String called = tokenizer.getNext();
         contentId = tokenizer.getNext();
         System.out.println("id" + contentId);
+        if (!blank1.equals(" ") || !quotation1.equals("\"") || !quotation2.equals("\"") || !blank2.equals(" ") || !called.equals("Called")) {
+            throw new InvalidInputException("Correct Create String statement: Create String \"STRING_CONTENT\" Called STRING_NAME");
+        }
     }
 
     @Override

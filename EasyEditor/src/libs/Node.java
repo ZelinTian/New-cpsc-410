@@ -9,8 +9,8 @@ public abstract class Node {
     protected static Tokenizer tokenizer = Tokenizer.getTokenizer();
     static protected PrintWriter writer;
 
-    abstract public void parse();
-    abstract public String evaluate() throws FileNotFoundException, UnsupportedEncodingException;
+    abstract public void parse() throws InvalidInputException;
+    abstract public String evaluate() throws FileNotFoundException, UnsupportedEncodingException, InvalidInputException;
 
 
 }
