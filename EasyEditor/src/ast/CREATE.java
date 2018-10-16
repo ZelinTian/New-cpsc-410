@@ -17,27 +17,31 @@ public class CREATE extends STATEMENT {
     @Override
     public void parse() throws InvalidInputException {
         try {
-            tokenizer.getAndCheckNext("Create");
+            tokenizer.getAndCheckNext("CREATE");
             String blank = tokenizer.getNext();
             if (!blank.equals(" ")) {
-                throw new InvalidInputException("Correct Create statement: Create Section/String/List/Superstring CONTENT");
+                System.out.println(blank);
+                System.out.println("here 1 <<<<<<<<<<<<<<<");
+                throw new InvalidInputException("Correct CREATE statement: CREATE SECTION/STRING/LIST/SUPER STRING CONTENT");
             }
             a = tokenizer.getNext();
 //        String s1 = tokenizer.getNext();
-            if (a.equals("Section")) {
+            if (a.equals("SECTION")) {
                 codeSection = new SECTION();
                 codeSection.parse();
-            } else if (a.equals("String")) {
+            } else if (a.equals("STRING")) {
                 codeSectionContent = new STRING_CONTENT();
                 codeSectionContent.parse();
-            } else if (a.equals("List")) {
+            } else if (a.equals("LIST")) {
                 codeList = new LIST();
                 codeList.parse();
-            } else if (a.equals("Superstring")) {
+            } else if (a.equals("SUPER ")) {
                 codesuperstring = new SUPERSTRING();
                 codesuperstring.parse();
             } else {
-                throw new InvalidInputException("Correct Create statement: Create Section/String/List/Superstring CONTENT");
+                System.out.println(a);
+                System.out.println("here 2 <<<<<<<<<<<<<<<");
+                throw new InvalidInputException("Correct CREATE statement: CREATE SECTION/STRING/LIST/SUPER STRING CONTENT");
             }
         } catch (InvalidInputException e) {
             throw e;
@@ -46,13 +50,13 @@ public class CREATE extends STATEMENT {
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-        if (a.equals("Section")) {
+        if (a.equals("SECTION")) {
             codeSection.evaluate();
-        } else if (a.equals("String")) {
+        } else if (a.equals("STRING")) {
             codeSectionContent.evaluate();
-        } else if (a.equals("List")) {
+        } else if (a.equals("LIST")) {
             codeList.evaluate();
-        } else if (a.equals("Superstring")) {
+        } else if (a.equals("SUPER ")) {
             codesuperstring.evaluate();
         }
         return null;

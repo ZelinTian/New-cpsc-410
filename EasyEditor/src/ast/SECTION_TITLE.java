@@ -21,7 +21,7 @@ public class SECTION_TITLE extends STATEMENT {
         String quotation2 = tokenizer.getNext();
         tokenizer.getNext();
         if (!quotation1.equals("\"") || !quotation2.equals("\"")) {
-            throw new InvalidInputException("Correct Set Section Title statement: Set the title of \"SECTION_TITLE\"");
+            throw new InvalidInputException("Correct SET SECTION_TITLE statement: SET TITLE OF SECTION_ID \"SECTION_TITLE\"");
         }
     }
 
@@ -29,9 +29,9 @@ public class SECTION_TITLE extends STATEMENT {
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException, InvalidInputException {
         if (Main.symbolTable.containsKey(targetSection.trim())) {
             Main.symbolTable.remove(targetSection.trim());
-            Main.symbolTable.put(targetSection.trim()+"_title", sectionTitle);
+            Main.symbolTable.put(targetSection.trim()+"_TITLE", sectionTitle);
         } else {
-            throw new InvalidInputException("Section " + targetSection.trim() + " is not created yet");
+            throw new InvalidInputException("SECTION " + targetSection.trim() + " is not created yet");
         }
 
         return  null;

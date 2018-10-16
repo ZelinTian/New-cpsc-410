@@ -18,7 +18,7 @@ public class HEADER extends STATEMENT {
         name = tokenizer.getNext();
         String quotation2 = tokenizer.getNext();
         if (!blank1.equals(" ") || !quotation1.equals("\"") || !quotation2.equals("\"")) {
-            throw new InvalidInputException("Correct Set HEADER statement: Set HEADER \"HEADER\"");
+            throw new InvalidInputException("Correct SET HEADER statement: SET HEADER \"HEADER_NAME\"");
         }
         tokenizer.getNext();
 //        tokenizer.getNext();
@@ -30,10 +30,10 @@ public class HEADER extends STATEMENT {
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException, InvalidInputException {
-        if (Main.symbolTable.containsKey("Header")) {
-            throw new InvalidInputException("Header has been set");
+        if (Main.symbolTable.containsKey("HEADER")) {
+            throw new InvalidInputException("HEADER has been set");
         } else {
-            Main.symbolTable.put("Header", name);
+            Main.symbolTable.put("HEADER", name);
         }
         return null;
     }

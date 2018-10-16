@@ -12,7 +12,7 @@ public class PRESENT extends STATEMENT {
     List<String> presentList = new ArrayList<>();
     @Override
     public void parse() {
-        tokenizer.getAndCheckNext("Present");
+        tokenizer.getAndCheckNext("PRESENT");
         String target = tokenizer.getNext().trim();
         presentList = Arrays.asList(target.split(","));
     }
@@ -29,16 +29,16 @@ public class PRESENT extends STATEMENT {
         System.out.println("show the results:" );
         MAKER maker = new MAKER();
         maker.startWrite();
-        if (Main.symbolTable.containsKey("Header")){
-            String title =(String)Main.symbolTable.get("Header");
+        if (Main.symbolTable.containsKey("HEADER")){
+            String title =(String)Main.symbolTable.get("HEADER");
             maker.setTitle(title);
         }
-        if (Main.symbolTable.containsKey("Author")){
-            String author =(String)Main.symbolTable.get("Author");
+        if (Main.symbolTable.containsKey("AUTHOR")){
+            String author =(String)Main.symbolTable.get("AUTHOR");
             maker.setAuthor(author);
         }
-        if (Main.symbolTable.containsKey("Date")){
-            String date =(String)Main.symbolTable.get("Date");
+        if (Main.symbolTable.containsKey("DATE")){
+            String date =(String)Main.symbolTable.get("DATE");
             maker.setDate(date);
         }
         maker.beginDoc();

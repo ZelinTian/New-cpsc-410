@@ -18,27 +18,31 @@ public class SET extends STATEMENT {
     @Override
     public void parse() throws InvalidInputException {
         try {
-            tokenizer.getAndCheckNext("Set");
+            tokenizer.getAndCheckNext("SET");
             String blank = tokenizer.getNext();
             if (!blank.equals(" ")) {
-                throw new InvalidInputException("Correct Set statement: Set Author/Date/HEADER/the title of CONTENT");
+                System.out.println(blank);
+                System.out.println("here 1 <<<<<<<<<<<<<<<<<<<<");
+                throw new InvalidInputException("Correct SET statement: SET TITLE OF/AUTHOR/DATE/HEADER CONTENT");
             }
             a = tokenizer.getNext();
 //        String s1 = tokenizer.getNext();
-            if (a.equals("the title of")) {
+            if (a.equals("TITLE OF")) {
                 codeSectionTitle = new SECTION_TITLE();
                 codeSectionTitle.parse();
-            } else if (a.equals("Author")) {
+            } else if (a.equals("AUTHOR")) {
                 codeAuthor = new AUTHOR();
                 codeAuthor.parse();
-            } else if (a.equals("Date")) {
+            } else if (a.equals("DATE")) {
                 codeDate = new DATE();
                 codeDate.parse();
             } else if (a.equals("HEADER")) {
                 codeTitle = new HEADER();
                 codeTitle.parse();
             } else {
-                throw new InvalidInputException("Correct Set statement: Set Author/Date/HEADER/the title of CONTENT");
+                System.out.println(a);
+                System.out.println("here 2 <<<<<<<<<<<<<<<<<<<<");
+                throw new InvalidInputException("Correct SET statement: SET TITLE OF/AUTHOR/DATE/HEADER CONTENT");
             }
         } catch (InvalidInputException e) {
             throw e;
@@ -48,11 +52,11 @@ public class SET extends STATEMENT {
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException, InvalidInputException {
         try {
-            if (a.equals("the title of")) {
+            if (a.equals("TITLE OF")) {
                 codeSectionTitle.evaluate();
-            } else if (a.equals("Author")) {
+            } else if (a.equals("AUTHOR")) {
                 codeAuthor.evaluate();
-            } else if (a.equals("Date")) {
+            } else if (a.equals("DATE")) {
                 codeDate.evaluate();
             } else if (a.equals("HEADER")) {
                 codeTitle.evaluate();

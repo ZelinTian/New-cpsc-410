@@ -19,8 +19,8 @@ public class SECTION extends Node{
         String called = tokenizer.getNext();
         sectionId = tokenizer.getNext();
         System.out.println("section id: " + sectionId);
-        if (!blank.equals(" ") || !called.equals("Called")) {
-            throw new InvalidInputException("Correct Create Section statement: Create Section Called SECTION_NAME");
+        if (!blank.equals(" ") || !called.equals("CALLED")) {
+            throw new InvalidInputException("Correct CREATE SECTION statement: CREATE SECTION CALLED SECTION_NAME");
         }
     }
 

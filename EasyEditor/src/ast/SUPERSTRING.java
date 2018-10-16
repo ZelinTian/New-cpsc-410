@@ -17,6 +17,7 @@ public class SUPERSTRING extends STATEMENT {
     private List<SECTION> subsection = new ArrayList<SECTION>();
     @Override
     public void parse() throws InvalidInputException {
+        String string = tokenizer.getNext();
         String blank1 = tokenizer.getNext();
         String quotation1 = tokenizer.getNext();
         content = tokenizer.getNext();
@@ -25,8 +26,8 @@ public class SUPERSTRING extends STATEMENT {
         String blank2 = tokenizer.getNext();
         String called = tokenizer.getNext();
         contentId = tokenizer.getNext();
-        if (!blank1.equals(" ") || !quotation1.equals("\"") || !quotation2.equals("\"") || !blank2.equals(" ") || !called.equals("Called")) {
-            throw new InvalidInputException("Correct Create Superstring statement: Create Superstring \"SUPER_STRING_CONTENT\" Called SUPER_STRING_NAME");
+        if (!string.equals("STRING") || !blank1.equals(" ") || !quotation1.equals("\"") || !quotation2.equals("\"") || !blank2.equals(" ") || !called.equals("CALLED")) {
+            throw new InvalidInputException("Correct Create SUPER STRING statement: CREATE SUPER STRING \"SUPER_STRING_CONTENT\" CALLED SUPER_STRING_NAME");
         }
 
         List<String> splitSuperStrings = new ArrayList<String>();
@@ -35,35 +36,15 @@ public class SUPERSTRING extends STATEMENT {
         for (String s : splitSuperStrings){
             if (s.contains("[")){
                 int i = s.indexOf("[");
-                String color = s.substring(0,i);
+                String color = s.substring(0,3);
                 switch (color) {
-                    case "BLACK":
+                    case "BLU":
                         break;
-                    case "BLUE":
-                        break;
-                    case "CYAN":
-                        break;
-                    case "DARK_GRAY":
-                        break;
-                    case "GRAY":
-                        break;
-                    case "GREEN":
-                        break;
-                    case "LIGHT_GRAY":
-                        break;
-                    case "MAGENTA":
-                        break;
-                    case "ORANGE":
-                        break;
-                    case "PINK":
+                    case "GRE":
                         break;
                     case "RED":
                         break;
-                    case "WHITE":
-                        break;
-                    case "YELLOW":
-                        break;
-                    default: throw new InvalidInputException("Invalid Color " + color);
+                    default: throw new InvalidInputException("Valid COLOR: BLU/GRE/RED");
                 }
                 int j = s.indexOf("]");
                 if (j != -1) {
@@ -72,13 +53,14 @@ public class SUPERSTRING extends STATEMENT {
             }
         }
         if (!isValid) {
-            throw new InvalidInputException("Valid Superstring contain COLOR[STRING_CONTENT]");
+            throw new InvalidInputException("Valid SUPER STRING contain COLOR[STRING_CONTENT]");
         }
     }
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-        Main.symbolTable.put(contentId.trim()+"_superstring",content.trim());
+        System.out.println(content.trim()+ "<<<<<<<<<<<<<<<<");
+        Main.symbolTable.put(contentId.trim()+"_SUPER_STRING",content.trim());
 
         return  null;
     }

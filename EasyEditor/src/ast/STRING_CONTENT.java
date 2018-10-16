@@ -28,8 +28,8 @@ public class STRING_CONTENT extends STATEMENT {
         String called = tokenizer.getNext();
         contentId = tokenizer.getNext();
         System.out.println("id" + contentId);
-        if (!blank1.equals(" ") || !quotation1.equals("\"") || !quotation2.equals("\"") || !blank2.equals(" ") || !called.equals("Called")) {
-            throw new InvalidInputException("Correct Create String statement: Create String \"STRING_CONTENT\" Called STRING_NAME");
+        if (!blank1.equals(" ") || !quotation1.equals("\"") || !quotation2.equals("\"") || !blank2.equals(" ") || !called.equals("CALLED")) {
+            throw new InvalidInputException("Correct CREATE STRING statement: Create STRING \"STRING_CONTENT\" CALLED STRING_NAME");
         }
     }
 

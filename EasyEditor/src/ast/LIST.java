@@ -20,12 +20,12 @@ public class LIST extends STATEMENT {
         String blank2 = tokenizer.getNext();
         String called = tokenizer.getNext();
         listId = tokenizer.getNext().trim();
-        if (!blank1.equals(" ") || !quotation1.equals("\"") || !quotation2.equals("\"") || !blank2.equals(" ") || !called.equals("Called")) {
-            throw new InvalidInputException("Correct Create List statement: Create List \"ITEM1,ITEM2...\" Called LIST_NAME");
+        if (!blank1.equals(" ") || !quotation1.equals("\"") || !quotation2.equals("\"") || !blank2.equals(" ") || !called.equals("CALLED")) {
+            throw new InvalidInputException("Correct CREATE LIST statement: CREATE LIST \"ITEM1,ITEM2...\" CALLED LIST_NAME");
         }
     }
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-        Main.symbolTable.put(listId+"_list", listContent);
+        Main.symbolTable.put(listId+"_LIST", listContent);
         return null;
     }
 }

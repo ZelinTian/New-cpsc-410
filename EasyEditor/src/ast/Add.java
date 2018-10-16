@@ -13,24 +13,24 @@ import java.util.List;
 /**
  * Created by zelin on 2018/10/10.
  */
-public class Add extends STATEMENT {
+public class ADD extends STATEMENT {
     private String key;
     private String value;
     @Override
     public void parse() throws InvalidInputException {
-        tokenizer.getAndCheckNext("Add");
+        tokenizer.getAndCheckNext("ADD");
         value = tokenizer.getNext();
         String to = tokenizer.getNext();
-        if (!to.equals("To")) {
-            throw new InvalidInputException("Correct Add statement: Add ITEM_NAME To SECTION_NAME");
+        if (!to.equals("TO")) {
+            throw new InvalidInputException("Correct ADD statement: ADD ITEM_NAME TO SECTION_NAME");
         }
         key = tokenizer.getNext();
     }
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException, InvalidInputException {
-        if (!Main.symbolTable.containsKey(key.trim() + "_title")) {
-            throw new InvalidInputException("Section " + key.trim() + " is not created yet");
+        if (!Main.symbolTable.containsKey(key.trim() + "_TITLE")) {
+            throw new InvalidInputException("SECTION " + key.trim() + " is not created yet");
         }
         boolean isExist = false;
         for (Object item : Main.symbolTable.keySet()) {
@@ -45,17 +45,17 @@ public class Add extends STATEMENT {
             }
         }
         if (!isExist) {
-            throw new InvalidInputException("Item " + value.trim() + " is not created yet");
+            throw new InvalidInputException("ITEM " + value.trim() + " is not created yet");
         }
 
-        if (!Main.symbolTable.containsKey(key.trim()+"_content")) {
-            Main.symbolTable.put(key.trim()+"_content",value.trim());
-        } else if (Main.symbolTable.get(key.trim()+"_content") instanceof String) {
-            String str = ((String) Main.symbolTable.get(key.trim()+"_content"));
+        if (!Main.symbolTable.containsKey(key.trim()+"_CONTENT")) {
+            Main.symbolTable.put(key.trim()+"_CONTENT",value.trim());
+        } else if (Main.symbolTable.get(key.trim()+"_CONTENT") instanceof String) {
+            String str = ((String) Main.symbolTable.get(key.trim()+"_CONTENT"));
             str = str.trim()+","+value.trim();
             System.out.println(str);
-            Main.symbolTable.put(key.trim()+"_content",str);
+            Main.symbolTable.put(key.trim()+"_CONTENT",str);
         }
-        return  null;
+        return null;
     }
 }

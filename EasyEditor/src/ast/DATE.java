@@ -25,19 +25,19 @@ public class DATE extends STATEMENT{
         date = tokenizer.getNext();
         String quotation2 = tokenizer.getNext();
         if (!blank1.equals(" ") || !quotation1.equals("\"") || !quotation2.equals("\"")) {
-            throw new InvalidInputException("Correct Set Date statement: Set Date \"DD/MM/YYYY\"");
+            throw new InvalidInputException("Correct SET DATE statement: SET DATE \"DD/MM/YYYY\"");
         }
         tokenizer.getNext();
         try {
             df.parse(date);
         } catch (ParseException e) {
-            throw new InvalidInputException("Correct Date form: DD/MM/YYYY");
+            throw new InvalidInputException("Correct DATE form: DD/MM/YYYY");
         }
         try {
             df.setLenient(false);
             df.parse(date);
         } catch (Exception e) {
-            throw new InvalidInputException("Invalid Date");
+            throw new InvalidInputException("Invalid DATE");
         }
         /*tokenizer.getNext();
         tokenizer.getNext();
@@ -49,10 +49,10 @@ public class DATE extends STATEMENT{
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException, InvalidInputException {
-        if (Main.symbolTable.containsKey("Date")) {
-            throw new InvalidInputException("Date has been set");
+        if (Main.symbolTable.containsKey("DATE")) {
+            throw new InvalidInputException("DATE has been set");
         } else {
-            Main.symbolTable.put("Date", date);
+            Main.symbolTable.put("DATE", date);
         }
         return null;
     }

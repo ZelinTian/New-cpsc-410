@@ -21,7 +21,7 @@ public class AUTHOR extends STATEMENT {
         String quotation2 = tokenizer.getNext();
         tokenizer.getNext();
         if (!blank1.equals(" ") || !quotation1.equals("\"") || !quotation2.equals("\"")) {
-            throw new InvalidInputException("Correct Set Author statement: Set Author \"AUTHOR_NAME\"");
+            throw new InvalidInputException("Correct SET AUTHOR statement: SET AUTHOR \"AUTHOR_NAME\"");
         }
 
         System.out.println("!!!" + name);
@@ -35,10 +35,10 @@ public class AUTHOR extends STATEMENT {
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException, InvalidInputException {
-        if (Main.symbolTable.containsKey("Author")) {
-            throw new InvalidInputException("Author has been set");
+        if (Main.symbolTable.containsKey("AUTHOR")) {
+            throw new InvalidInputException("AUTHOR has been set");
         } else {
-            Main.symbolTable.put("Author", name);
+            Main.symbolTable.put("AUTHOR", name);
         }
         return  null;
     }
