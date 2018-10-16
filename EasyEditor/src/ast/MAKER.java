@@ -38,9 +38,9 @@ public class MAKER {
             e.printStackTrace();
         }
     }
-    public void setAuthor(String AUTHOR){
+    public void setAuthor(String author){
         try {
-            output.print("\n"+"\\author{" + AUTHOR +"}");
+            output.print("\n"+"\\author{" + author +"}");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -75,14 +75,14 @@ public class MAKER {
     }
 
     public void build_section(String id){
-        String section_title = (String)Main.symbolTable.get(id+"_title");
+        String section_title = (String)Main.symbolTable.get(id+"_TITLE");
         try {
             output.print("\n"+"\n"+
                     "\\section{"+section_title+"}");
         } catch (Exception e) {
             e.printStackTrace();
         }
-        String section_content = (String) Main.symbolTable.get(id+"_content");
+        String section_content = (String) Main.symbolTable.get(id+"_CONTENT");
         List<String> listOfcontents = new ArrayList<>();
         listOfcontents = Arrays.asList(section_content.split(","));
         for (int i =0;i < listOfcontents.size();i++) {
@@ -90,10 +90,10 @@ public class MAKER {
             if (Main.symbolTable.containsKey(content_id)) {
                 String stringContent = (String) Main.symbolTable.get(content_id);
                 output.print("\n" + stringContent);
-            } else if (Main.symbolTable.containsKey(content_id+"_list")){
-                build_list(content_id+"_list");
-            } else if (Main.symbolTable.containsKey(content_id+"_superstring")){
-                setsuperString(content_id+"_superstring");
+            } else if (Main.symbolTable.containsKey(content_id+"_LIST")){
+                build_list(content_id+"_LIST");
+            } else if (Main.symbolTable.containsKey(content_id+"_SUPER_STRING")){
+                setsuperString(content_id+"_SUPER_STRING");
             }
             else {
                 build_subsection(content_id);
@@ -112,9 +112,9 @@ public class MAKER {
 
     }
     public void build_subsection(String id){
-        if (Main.symbolTable.containsKey(id+"_title")) {
-            String subsection_title = (String) Main.symbolTable.get(id + "_title");
-            String subsection_content = (String) Main.symbolTable.get(id + "_content");
+        if (Main.symbolTable.containsKey(id+"_TITLE")) {
+            String subsection_title = (String) Main.symbolTable.get(id + "_TITLE");
+            String subsection_content = (String) Main.symbolTable.get(id + "_CONTENT");
             List<String> listcontent = new ArrayList<>();
             listcontent = Arrays.asList(subsection_content.split(","));
             for (int i =0;i < listcontent.size();i++){
@@ -123,7 +123,7 @@ public class MAKER {
                     output.print("\n \\subsection{" + subsection_title + "}"+Main.symbolTable.get(target));
                 }else {
                     output.print("\n \\subsection{" + subsection_title + "}");
-                    build_list(target+"_list");
+                    build_list(target+"_LIST");
                 }
             }
 

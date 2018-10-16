@@ -1,5 +1,6 @@
 package ast;
 
+import libs.InvalidInputException;
 import ui.Main;
 
 import java.io.FileNotFoundException;
@@ -11,14 +12,17 @@ import java.io.UnsupportedEncodingException;
 public class AUTHOR extends STATEMENT {
     private String name;
     @Override
-    public void parse() {
+    public void parse() throws InvalidInputException{
 //        tokenizer.getAndCheckNext("connect");
 //        //some shape string
-        tokenizer.getNext();
-        tokenizer.getNext();
+        String blank1 = tokenizer.getNext();
+        String quotation1 = tokenizer.getNext();
         name = tokenizer.getNext();
+        String quotation2 = tokenizer.getNext();
         tokenizer.getNext();
-        tokenizer.getNext();
+        if (!blank1.equals(" ") || !quotation1.equals("\"") || !quotation2.equals("\"")) {
+            throw new InvalidInputException("Correct SET AUTHOR statement: SET AUTHOR \"AUTHOR_NAME\"");
+        }
 
         System.out.println("!!!" + name);
 //        //"called"
@@ -30,8 +34,12 @@ public class AUTHOR extends STATEMENT {
     }
 
     @Override
-    public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-        Main.symbolTable.put("Author",name);
+    public String evaluate() throws FileNotFoundException, UnsupportedEncodingException, InvalidInputException {
+        if (Main.symbolTable.containsKey("AUTHOR")) {
+            throw new InvalidInputException("AUTHOR has been set");
+        } else {
+            Main.symbolTable.put("AUTHOR", name);
+        }
         return  null;
     }
 }

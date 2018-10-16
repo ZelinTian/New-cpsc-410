@@ -19,28 +19,17 @@
 
 
 
-\section{Introduction}
-My name is Colin
-
 \section{my friends:}
  \begin{itemize}
- \item rex
- \item colin
+ \item asf
+ \item sadf
  \end{itemize}
  \subsection{Introduction}My name is Colin
 
-\section{skills}
-I have such RED[skills]
+\section{skills}I have such \gre{skills} 
  \begin{itemize}
  \item Java
  \item python
- \end{itemize}
-
-\section{Mars}
- \begin{itemize}
- \item CPSC410
- \item  CPSC404
- \item  CPSC418
  \end{itemize}
 
 \end{document}
