@@ -29,4 +29,9 @@ public class SECTION extends Node{
         Main.symbolTable.put(sectionId.trim(),"");
         return  null;
     }
+
+    @Override
+    public String evaluate(String scope) throws FileNotFoundException, UnsupportedEncodingException, InvalidInputException {
+        return null;
+    }
 }

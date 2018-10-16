@@ -65,4 +65,9 @@ public class PRESENT extends STATEMENT {
         maker.finishWrite();
         return null;
     }
+
+    @Override
+    public String evaluate(String scope) throws FileNotFoundException, UnsupportedEncodingException, InvalidInputException {
+        return null;
+    }
 }

@@ -11,6 +11,7 @@ public abstract class Node {
 
     abstract public void parse() throws InvalidInputException;
     abstract public String evaluate() throws FileNotFoundException, UnsupportedEncodingException, InvalidInputException;
+    abstract public String evaluate(String scope) throws FileNotFoundException, UnsupportedEncodingException, InvalidInputException;
 
 
 }

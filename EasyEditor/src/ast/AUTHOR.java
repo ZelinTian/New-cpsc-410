@@ -42,4 +42,9 @@ public class AUTHOR extends STATEMENT {
         }
         return  null;
     }
+
+    @Override
+    public String evaluate(String scope) throws FileNotFoundException, UnsupportedEncodingException, InvalidInputException {
+        return null;
+    }
 }

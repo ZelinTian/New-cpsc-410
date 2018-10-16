@@ -28,4 +28,9 @@ public class LIST extends STATEMENT {
         Main.symbolTable.put(listId+"_LIST", listContent);
         return null;
     }
+
+    public String evaluate(String scope) throws FileNotFoundException, UnsupportedEncodingException {
+        Main.symbolTable.put(listId+"_LIST", listContent);
+        return null;
+    }
 }

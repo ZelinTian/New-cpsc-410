@@ -13,7 +13,10 @@ public  abstract class STATEMENT extends Node {
             return new PRESENT();
         } else if (tokenizer.checkToken("ADD")){
             return new ADD();
-        } else {
+        } else if (tokenizer.checkToken("DEF")){
+            return new PROCDEF();
+        }
+        else {
             throw new InvalidInputException("Valid statement start with SET/CREATE/PRESENT/ADD");
         }
     }

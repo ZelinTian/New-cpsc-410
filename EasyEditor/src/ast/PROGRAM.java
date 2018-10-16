@@ -32,7 +32,7 @@ public class PROGRAM extends Node{
                 statements.add(s);
             }
         } catch (InvalidInputException e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
             System.exit(0);
         }
 
@@ -45,9 +45,14 @@ public class PROGRAM extends Node{
                 s.evaluate();
             }
         } catch (InvalidInputException e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
             System.exit(0);
         }
+        return null;
+    }
+
+    @Override
+    public String evaluate(String scope) throws FileNotFoundException, UnsupportedEncodingException, InvalidInputException {
         return null;
     }
 }
