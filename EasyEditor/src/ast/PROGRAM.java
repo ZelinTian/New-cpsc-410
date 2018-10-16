@@ -1,6 +1,5 @@
 package ast;
 
-import libs.InvalidInputException;
 import libs.Node;
 
 import java.io.FileNotFoundException;
@@ -13,9 +12,8 @@ public class PROGRAM extends Node{
 
     @Override
     public void parse() {
-        try {
-            while (tokenizer.moreTokens()) {
-                STATEMENT s = STATEMENT.getSubStatement();
+        while (tokenizer.moreTokens()) {
+            STATEMENT s = STATEMENT.getSubStatement();
 //            if (tokenizer.checkToken("set")) {
 //                s = new SET();
 //            }
@@ -28,25 +26,16 @@ public class PROGRAM extends Node{
 //            else if (tokenizer.checkToken("print")){
 //                s = new PRINT();
 //            }
-                s.parse();
-                statements.add(s);
-            }
-        } catch (InvalidInputException e) {
-            System.out.println(e.getMessage());
-            System.exit(0);
+            s.parse();
+            statements.add(s);
         }
 
     }
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-        try {
-            for (STATEMENT s : statements) {
-                s.evaluate();
-            }
-        } catch (InvalidInputException e) {
-            System.out.println(e.getMessage());
-            System.exit(0);
+        for (STATEMENT s : statements){
+            s.evaluate();
         }
         return null;
     }

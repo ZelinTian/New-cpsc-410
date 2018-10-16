@@ -1,7 +1,5 @@
 package ast;
 
-import libs.InvalidInputException;
-
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 
@@ -15,32 +13,23 @@ public class CREATE extends STATEMENT {
     private LIST codeList;
     private SUPERSTRING codesuperstring;
     @Override
-    public void parse() throws InvalidInputException {
-        try {
-            tokenizer.getAndCheckNext("CREATE");
-            String blank = tokenizer.getNext();
-            if (!blank.equals(" ")) {
-                throw new InvalidInputException("Correct CREATE statement: CREATE SECTION/STRING/LIST/SUPER STRING CONTENT");
-            }
-            a = tokenizer.getNext();
+    public void parse() {
+        tokenizer.getAndCheckNext("CREATE");
+        String target = tokenizer.getNext();
+        a = tokenizer.getNext();
 //        String s1 = tokenizer.getNext();
-            if (a.equals("SECTION")) {
-                codeSection = new SECTION();
-                codeSection.parse();
-            } else if (a.equals("STRING")) {
-                codeSectionContent = new STRING_CONTENT();
-                codeSectionContent.parse();
-            } else if (a.equals("LIST")) {
-                codeList = new LIST();
-                codeList.parse();
-            } else if (a.equals("SUPER ")) {
-                codesuperstring = new SUPERSTRING();
-                codesuperstring.parse();
-            } else {
-                throw new InvalidInputException("Correct CREATE statement: CREATE SECTION/STRING/LIST/SUPER STRING CONTENT");
-            }
-        } catch (InvalidInputException e) {
-            throw e;
+        if (a.equals("SECTION")){
+            codeSection = new SECTION();
+            codeSection.parse();
+        } else if (a.equals("STRING")){
+            codeSectionContent = new STRING_CONTENT();
+            codeSectionContent.parse();
+        }else if (a.equals("LIST")){
+            codeList = new LIST();
+            codeList.parse();
+        }else if (a.equals("SUPERSTRING")){
+            codesuperstring = new SUPERSTRING();
+            codesuperstring.parse();
         }
     }
 
@@ -52,7 +41,7 @@ public class CREATE extends STATEMENT {
             codeSectionContent.evaluate();
         } else if (a.equals("LIST")) {
             codeList.evaluate();
-        } else if (a.equals("SUPER ")) {
+        } else if (a.equals("SUPERSTRING")) {
             codesuperstring.evaluate();
         }
         return null;

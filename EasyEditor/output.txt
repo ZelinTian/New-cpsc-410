@@ -29,7 +29,8 @@ My name is Colin
  \end{itemize}
  \subsection{Introduction}My name is Colin
 
-\section{skills}I have such \red{skills} 
+\section{skills}
+I have such RED[skills]
  \begin{itemize}
  \item Java
  \item python
