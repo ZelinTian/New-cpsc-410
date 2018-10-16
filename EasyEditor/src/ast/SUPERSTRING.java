@@ -59,7 +59,6 @@ public class SUPERSTRING extends STATEMENT {
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-        System.out.println(content.trim()+ "<<<<<<<<<<<<<<<<");
         Main.symbolTable.put(contentId.trim()+"_SUPER_STRING",content.trim());
 
         return  null;

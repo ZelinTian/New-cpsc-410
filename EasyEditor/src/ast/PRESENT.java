@@ -1,5 +1,6 @@
 package ast;
 
+import libs.InvalidInputException;
 import ui.Main;
 
 import java.io.FileNotFoundException;
@@ -18,7 +19,7 @@ public class PRESENT extends STATEMENT {
     }
 
     @Override
-    public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
+    public String evaluate() throws FileNotFoundException, UnsupportedEncodingException, InvalidInputException {
         //make a fake symbolTable
 //        Main.symbolTable.put("s1_content","string1,list1");
 //        Main.symbolTable.put("s2_title","try");
@@ -43,6 +44,21 @@ public class PRESENT extends STATEMENT {
         }
         maker.beginDoc();
         for (int c = 0; c < presentList.size(); c++){
+            boolean isExist = false;
+            for (Object item : Main.symbolTable.keySet()) {
+                if (item instanceof String) {
+                    String itemString = (String) item;
+                    String[] original =  itemString.split("_", 2);
+                    for (String a : original) {
+                        if (presentList.get(c).equals(a)) {
+                            isExist = true;
+                        }
+                    }
+                }
+            }
+            if (!isExist) {
+                throw new InvalidInputException("SECTION " + presentList.get(c) + " is not created yet");
+            }
             String presentItem_id = presentList.get(c);
             maker.build_section(presentItem_id);
         }

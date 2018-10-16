@@ -1,32 +1,22 @@
-Set HEADER "Paper XX"
-Set Author "author XX"
-Set Date "10/11/2018"
+SET HEADER "Paper XX"
+SET AUTHOR "author XX"
+SET DATE "10/11/2018"
 
-Create List "rex,colin" Called names
-Create Section Called s2
-Set the title of s2 "my friends:"
-Add names To s2
+CREATE LIST "asf,sadf" CALLED names
+CREATE SECTION CALLED s2
+SET TITLE OF s2 "my friends:"
+ADD names TO s2
 
-Create String "My name is Colin" Called string1
-Create Section Called s1
-Set the title of s1 "Introduction"
-Add string1 To s1
-Add s1 To s2
+CREATE STRING "My name is Colin" CALLED string1
+CREATE SECTION CALLED s1
+SET TITLE OF s1 "Introduction"
+ADD string1 TO s1
+ADD s1 TO s2
 
-Create Superstring "I have such RED[skills]" Called string3
-Create Section Called s3
-Create List "Java,python" Called myskills
-Set the title of s3 "skills"
-Add string3 To s3
-Add myskills To s3
-
-
-
-
-Create Section Called Mars
-Set the title of Mars "Mars"
-Create List "CPSC410, CPSC404, CPSC418" Called Courses
-Add Courses To Mars
-
-
-Present s1,s2,s3,Mars
+CREATE SUPER STRING "I have such GRE[skills]" CALLED string3
+CREATE SECTION CALLED s3
+CREATE LIST "Java,python" CALLED myskills
+SET TITLE OF s3 "skills"
+ADD string3 TO s3
+ADD myskills TO s3
+PRESENT s2,s3

@@ -20,8 +20,6 @@ public class CREATE extends STATEMENT {
             tokenizer.getAndCheckNext("CREATE");
             String blank = tokenizer.getNext();
             if (!blank.equals(" ")) {
-                System.out.println(blank);
-                System.out.println("here 1 <<<<<<<<<<<<<<<");
                 throw new InvalidInputException("Correct CREATE statement: CREATE SECTION/STRING/LIST/SUPER STRING CONTENT");
             }
             a = tokenizer.getNext();
@@ -39,8 +37,6 @@ public class CREATE extends STATEMENT {
                 codesuperstring = new SUPERSTRING();
                 codesuperstring.parse();
             } else {
-                System.out.println(a);
-                System.out.println("here 2 <<<<<<<<<<<<<<<");
                 throw new InvalidInputException("Correct CREATE statement: CREATE SECTION/STRING/LIST/SUPER STRING CONTENT");
             }
         } catch (InvalidInputException e) {

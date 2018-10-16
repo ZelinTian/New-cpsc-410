@@ -21,8 +21,6 @@ public class SET extends STATEMENT {
             tokenizer.getAndCheckNext("SET");
             String blank = tokenizer.getNext();
             if (!blank.equals(" ")) {
-                System.out.println(blank);
-                System.out.println("here 1 <<<<<<<<<<<<<<<<<<<<");
                 throw new InvalidInputException("Correct SET statement: SET TITLE OF/AUTHOR/DATE/HEADER CONTENT");
             }
             a = tokenizer.getNext();
@@ -40,8 +38,6 @@ public class SET extends STATEMENT {
                 codeTitle = new HEADER();
                 codeTitle.parse();
             } else {
-                System.out.println(a);
-                System.out.println("here 2 <<<<<<<<<<<<<<<<<<<<");
                 throw new InvalidInputException("Correct SET statement: SET TITLE OF/AUTHOR/DATE/HEADER CONTENT");
             }
         } catch (InvalidInputException e) {
