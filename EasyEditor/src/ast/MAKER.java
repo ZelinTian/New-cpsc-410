@@ -83,20 +83,37 @@ public class MAKER {
             e.printStackTrace();
         }
         String section_content = (String) Main.symbolTable.get(id+"_CONTENT");
+
         List<String> listOfcontents = new ArrayList<>();
         listOfcontents = Arrays.asList(section_content.split(","));
         for (int i =0;i < listOfcontents.size();i++) {
             String content_id = listOfcontents.get(i);
-            if (Main.symbolTable.containsKey(content_id)) {
+            if (Main.symbolTable.containsKey(content_id+"_SUPER_STRING_"+id)){
+                setsuperString(content_id+"_SUPER_STRING_"+id);
+                continue;
+            }else if (Main.symbolTable.containsKey(content_id+"_SECTION_"+id)){
+                build_subsection(content_id+"_SECTION_"+id);
+                continue;
+            }else if (Main.symbolTable.containsKey(content_id+"_STRING_"+id)){
+                String stringContent = (String) Main.symbolTable.get(content_id+"_STRING_"+id);
+                output.print("\n" + stringContent+"\n");
+                continue;
+            } else if (Main.symbolTable.containsKey(content_id+"_LIST_"+id)){
+                build_list(content_id+"_LIST_"+id);
+                continue;
+            } else if (Main.symbolTable.containsKey(content_id)) {
                 String stringContent = (String) Main.symbolTable.get(content_id);
-                output.print("\n" + stringContent);
+                output.print("\n" + stringContent+"\n");
+                continue;
             } else if (Main.symbolTable.containsKey(content_id+"_LIST")){
                 build_list(content_id+"_LIST");
+                continue;
             } else if (Main.symbolTable.containsKey(content_id+"_SUPER_STRING")){
                 setsuperString(content_id+"_SUPER_STRING");
-            }
-            else {
+                continue;
+            } else {
                 build_subsection(content_id);
+                continue;
             }
         }
     }
@@ -108,10 +125,11 @@ public class MAKER {
         for(String item:listitem){
             output.print("\n \\item " + item);
         }
-        output.print("\n \\end{itemize}");
+        output.print("\n \\end{itemize} \n");
 
     }
     public void build_subsection(String id){
+        String scope = id;
         if (Main.symbolTable.containsKey(id+"_TITLE")) {
             String subsection_title = (String) Main.symbolTable.get(id + "_TITLE");
             String subsection_content = (String) Main.symbolTable.get(id + "_CONTENT");
@@ -123,7 +141,10 @@ public class MAKER {
                     output.print("\n \\subsection{" + subsection_title + "}"+Main.symbolTable.get(target));
                 }else {
                     output.print("\n \\subsection{" + subsection_title + "}");
-                    build_list(target+"_LIST");
+                    if (Main.symbolTable.containsKey(id+"_TITLE_"+scope)){
+                        build_list(target+"_LIST_"+scope);
+                    }
+                    else {build_list(target+"_LIST");}
                 }
             }
 

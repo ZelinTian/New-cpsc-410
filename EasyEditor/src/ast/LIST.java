@@ -30,7 +30,7 @@ public class LIST extends STATEMENT {
     }
 
     public String evaluate(String scope) throws FileNotFoundException, UnsupportedEncodingException {
-        Main.symbolTable.put(listId+"_LIST", listContent);
+        Main.symbolTable.put(listId+"_LIST_"+scope, listContent);
         return null;
     }
 }

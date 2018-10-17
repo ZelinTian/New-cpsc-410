@@ -61,6 +61,33 @@ public class ADD extends STATEMENT {
 
     @Override
     public String evaluate(String scope) throws FileNotFoundException, UnsupportedEncodingException, InvalidInputException {
+        if (!Main.symbolTable.containsKey(key.trim() + "_TITLE")) {
+            throw new InvalidInputException("SECTION " + key.trim() + " is not created yet");
+        }
+        boolean isExist = false;
+        for (Object item : Main.symbolTable.keySet()) {
+            if (item instanceof String) {
+                String itemString = (String) item;
+                String[] original =  itemString.split("_", 2);
+                for (String a : original) {
+                    if (value.trim().equals(a)) {
+                        isExist = true;
+                    }
+                }
+            }
+        }
+        if (!isExist) {
+            throw new InvalidInputException("ITEM " + value.trim() + " is not created yet");
+        }
+
+        if (!Main.symbolTable.containsKey(key.trim()+"_CONTENT")) {
+            Main.symbolTable.put(key.trim()+"_CONTENT",value.trim());
+        } else if (Main.symbolTable.get(key.trim()+"_CONTENT") instanceof String) {
+            String str = ((String) Main.symbolTable.get(key.trim()+"_CONTENT"));
+            str = str.trim()+","+ value.trim();
+            System.out.println(str);
+            Main.symbolTable.put(key.trim()+"_CONTENT",str);
+        }
         return null;
     }
 }

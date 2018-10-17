@@ -9,6 +9,7 @@ import java.io.UnsupportedEncodingException;
 public class PROCDEF extends STATEMENT {
     private String functionName;
     private BLOCK codeBlock;
+    private String title;
     @Override
     public void parse() throws InvalidInputException {
         tokenizer.getAndCheckNext("DEF");
@@ -19,6 +20,11 @@ public class PROCDEF extends STATEMENT {
 //        tokenizer.getAndCheckNext("SECTION");
 //        tokenizer.getAndCheckNext("CALLED");
         functionName = tokenizer.getNext().trim();
+        tokenizer.getNext();
+
+        title = tokenizer.getNext();
+        tokenizer.getNext();
+        tokenizer.getNext();
         System.out.println("function: " + functionName);
         tokenizer.getAndCheckNext("START");
         codeBlock = new BLOCK();
@@ -27,6 +33,7 @@ public class PROCDEF extends STATEMENT {
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException, InvalidInputException {
+        Main.symbolTable.put(functionName+"_TITLE",title.trim());
         Main.symbolTable.put(functionName,codeBlock);
         return null;
     }

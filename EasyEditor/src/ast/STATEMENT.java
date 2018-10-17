@@ -15,7 +15,10 @@ public  abstract class STATEMENT extends Node {
             return new ADD();
         } else if (tokenizer.checkToken("DEF")){
             return new PROCDEF();
+        } else if (tokenizer.checkToken("DO")){
+            return new PROCALL();
         }
+
         else {
             throw new InvalidInputException("Valid statement start with SET/CREATE/PRESENT/ADD");
         }

@@ -9,9 +9,9 @@
 \definecolor{red}{rgb}{1,0,0}
 \def\red#1{{\color{red}#1}}
 \def\norm#1{\|#1\|}
-\title{Paper XX}
-\author{author XX}
-\date{10/11/2018}
+\title{What is AI?}
+\author{Steven, Daniel, Colin, Rex}
+\date{16/10/2018}
 
 \begin{document}
 
@@ -19,17 +19,34 @@
 
 
 
-\section{my friends:}
+\section{Introduction}
+Artificial intelligence (AI) is an area of computer science that emphasizes the creation of intelligent machines that work and react like humans.
+\blu{artificial} \red{intelligence} are designed for include: 
  \begin{itemize}
- \item asf
- \item sadf
- \end{itemize}
- \subsection{Introduction}My name is Colin
+ \item Speech recognition
+ \item Learning
+ \item Planning
+ \item Problem solving
+ \end{itemize} 
 
-\section{skills}I have such \gre{skills} 
+
+\section{what computer Skills AI needs}
  \begin{itemize}
+ \item C++
  \item Java
  \item python
- \end{itemize}
+ \end{itemize} 
+
+
+\section{what is our topic?}\red{artificial} \gre{intelligence} problems 
+ \subsection{The core problems of artificial intelligence include programming computers for certain traits such as:}
+ \begin{itemize}
+ \item Knowledge
+ \item Reasoning
+ \item Problem solving
+ \item Perception
+ \item Learning
+ \end{itemize} 
+
 
 \end{document}

@@ -60,6 +60,16 @@ public class CREATE extends STATEMENT {
 
     @Override
     public String evaluate(String scope) throws FileNotFoundException, UnsupportedEncodingException, InvalidInputException {
+        if (a.equals("SECTION")) {
+            codeSection.evaluate(scope);
+        } else if (a.equals("STRING")) {
+            codeSectionContent.evaluate(scope);
+        } else if (a.equals("LIST")) {
+            codeList.evaluate(scope);
+        } else if (a.equals("SUPER ")) {
+            codesuperstring.evaluate(scope);
+        }
         return null;
+
     }
 }

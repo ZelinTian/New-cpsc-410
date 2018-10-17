@@ -1,34 +1,43 @@
-SET HEADER "Paper XX"
-SET AUTHOR "author XX"
-SET DATE "10/11/2018"
+SET HEADER "What is AI?"
+SET AUTHOR "Steven, Daniel, Colin, Rex"
+SET DATE "16/10/2018"
 
-CREATE LIST "asf,sadf" CALLED names
-CREATE SECTION CALLED s2
-SET TITLE OF s2 "my friends:"
-ADD names TO s2
+CREATE SUPER STRING "RED[artificial] GREEN[intelligence] problems" CALLED superstring1
 
-CREATE STRING "My name is Colin" CALLED string1
-CREATE SECTION CALLED s1
-SET TITLE OF s1 "Introduction"
-ADD string1 TO s1
-ADD s1 TO s2
-
-CREATE SUPER STRING "I have such GREEN[skills]" CALLED string3
-CREATE SECTION CALLED s3
-CREATE LIST "Java,python" CALLED myskills
-SET TITLE OF s3 "skills"
-ADD string3 TO s3
-ADD myskills TO s3
-
-DEF SECTION CALLED s6
+DEF SECTION CALLED s3 "what is our topic?"
     START
-    CREATE SUPER STRING "GREEN[newFunction!]" CALLED string3
-    CREATE SECTION CALLED s3
-    CREATE LIST "Java,python" CALLED myskills
-    SET TITLE OF s6 "!!!!"
-    ADD string3 TO s6
-    ADD myskills TO s6
+    ADD superstring1 TO s3
     END
 
 
-PRESENT s2,s3
+
+CREATE LIST "C++,Java,python" CALLED skills
+
+DEF SECTION CALLED s2 "what computer Skills AI needs"
+    START
+    ADD skills TO s2
+    END
+
+DEF SECTION CALLED s1 "Introduction"
+    START
+    CREATE STRING "Artificial intelligence (AI) is an area of computer science that emphasizes the creation of intelligent machines that work and react like humans." CALLED string1
+    CREATE LIST "Speech recognition,Learning,Planning,Problem solving" CALLED skills
+    CREATE SUPER STRING "BLUE[artificial] RED[intelligence] are designed for include: " CALLED string3
+    ADD string1 TO s1
+    ADD string3 TO s1
+    ADD skills TO s1
+    END
+
+
+CREATE SECTION CALLED s4
+SET TITLE OF s4 "The core problems of artificial intelligence include programming computers for certain traits such as:"
+CREATE LIST "Knowledge,Reasoning,Problem solving,Perception,Learning" CALLED csskills
+ADD csskills TO s4
+
+DO s1
+DO s2
+DO s3
+
+ADD s4 TO s3
+
+PRESENT s1,s2,s3

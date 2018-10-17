@@ -42,6 +42,7 @@ public class STRING_CONTENT extends STATEMENT {
 
     @Override
     public String evaluate(String scope) throws FileNotFoundException, UnsupportedEncodingException, InvalidInputException {
+        Main.symbolTable.put(contentId.trim()+"_STRING_"+scope, content);
         return null;
     }
 }

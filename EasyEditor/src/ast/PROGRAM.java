@@ -53,6 +53,14 @@ public class PROGRAM extends Node{
 
     @Override
     public String evaluate(String scope) throws FileNotFoundException, UnsupportedEncodingException, InvalidInputException {
+        try {
+            for (STATEMENT s : statements) {
+                s.evaluate(scope);
+            }
+        } catch (InvalidInputException e) {
+            System.err.println(e.getMessage());
+            System.exit(0);
+        }
         return null;
     }
 }

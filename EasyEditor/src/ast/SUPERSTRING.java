@@ -66,6 +66,7 @@ public class SUPERSTRING extends STATEMENT {
 
     @Override
     public String evaluate(String scope) throws FileNotFoundException, UnsupportedEncodingException, InvalidInputException {
+        Main.symbolTable.put(contentId.trim()+"_SUPER_STRING_"+scope, content);
         return null;
     }
 
