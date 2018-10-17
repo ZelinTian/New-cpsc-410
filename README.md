@@ -29,5 +29,8 @@ format of SUPER_STRING_CONTENT is "[STRING*] [COLOR1]STRING2 [COLOR2]STRING3 [ST
 ADD statement's LIST_ID or SECTION_ID must has been created by CREATE LIST or SECTION statement\
 PRESENT statement's SECTION_ID must has been created by CREATE SECTION statement\
 
-Example input:
+Example input:\
 ![alt text](https://github.com/ZelinTian/New-cpsc-410/blob/master/figs/input.png)
+
+Example output:\
+![alt text](https://github.com/ZelinTian/New-cpsc-410/blob/master/figs/output.png)
