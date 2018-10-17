@@ -4,7 +4,7 @@ The purpose of EasyEditor is help NOT LaTeX expert to create LaTeX document from
 
 EBNF
 
-PROGRAM := STATEMENT*;
+PROGRAM := STATEMENT*;\
 STATEMENT := SET | CREATE | ADD | PRESENT;
 SET := "SET ", HEADER | AUTHOR | DATE | TITLE;
 HEADER := "HEADER ", '"', STRING, '"';
