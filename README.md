@@ -30,3 +30,4 @@ ADD statement's LIST_ID or SECTION_ID must has been created by CREATE LIST or SE
 PRESENT statement's SECTION_ID must has been created by CREATE SECTION statement\
 
 Example input:
+![alt text](https://github.com/ZelinTian/New-cpsc-410/tree/master/figs)
