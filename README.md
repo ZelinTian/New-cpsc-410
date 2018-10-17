@@ -1,7 +1,6 @@
 # New-cpsc-410
 
-The purpose of EasyEditor is help NOT LaTeX expert to create LaTeX document from natural English. 
-And then, user can copy our output to Overleaf in order to form PDF.
+The purpose of EasyEditor is help NOT LaTeX expert to create LaTeX document from natural English. And then, user can copy our output to Overleaf in order to form PDF.
 
 EBNF
 
